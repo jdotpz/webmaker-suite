@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Installing the Webmaker Suite in Windows</title>
+    <style>
+      section {
+        margin: 3em;
+      }
+
+      section h2 {
+        font-size: 230%;
+        background: #333;
+        color: white;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .deck-container {
+        position: relative;
+        text-align: center;
+      }
+
+      .deck-container img, .slideText {
+        width: 55%;
+      }
+
+      .slide {
+        border: 1px solid black;
+      }
+
+      .slideText {
+        margin: 0 auto 1em;
+        text-align: justify;
+      }
+
+      button.previous, button.next {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        background: #EEE;
+        border-radius: 10px;
+        border: 1px solid grey;
+      }
+
+      button.next {
+        right: 0;
+      }
+
+      button.previous {
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>A step by step instructions on how to install the <a href="https://github.com/mozilla/webmaker-suite">Webmaker Suite<a/> in Windows</h1>
+
+    <p>Before you can actually install the webmaker suite, you'll need several prerequisite programs and technologies installed. The following list covers each of these, with screenshot instructions for each bit you need to install.</p>
+
+    <ol>
+      <li>a basic cygwin (http://cygwin.com) or mingw (http://mingw.org) installation to ensure you have the rm, git and curl commands available.
+      <li>node.js - http://nodejs.org (or through your favourite package manager)
+      <li>npm - comes with node.js
+      <li>bower - npm install -g bower (depends on npm, so install node.js first)
+      <li>grunt - npm install -g grunt-cli (depends on npm, so install node.js first)
+      <li>python - http://python.org (or through your favourite package manager), we depend on 2.7
+      <li>pip - instructions on http://www.pip-installer.org/en/latest/installing.html
+      <li>mongodb - http://www.mongodb.org/downloads (or through your favourite package manager)
+      <li>java - http://www.oracle.com/technetwork/java/javase/downloads/index.html (if not already installed)
+      <li>elastic search - http://www.elasticsearch.org (or through your favourite package manager)
+    </ol>
+
+    <section>
+      <h2>Windows</h2>
+      <p>This tutorial was written using a clean installation of Windows 7, with Firefox installed. That looks like this:</p>
+      <img src="images/intro/Windows 7-2013-09-25-08-50-25.png" alt="">
+    </section>
+
+    <section>
+      <h2>Cygwin</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-51-32.png" alt="Head over to the CygWin website">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-51-42.png" alt="Go to the 'install' page and download setup-x86.exe">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-51-52.png" alt="When finished, run this file">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-52-01.png" alt="You'll get the Cygwin installer. Hit next.">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-52-08.png" alt="Hit next">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-52-11.png" alt="Hit next">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-52-14.png" alt="Hit next some more">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-52-27.png" alt="Pick any repository. They should all work.">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-54-11.png" alt="This listing lets you select/unselecte what you need. We'll add two requirements">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-54-39.png" alt="First, we add the git client">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-54-40.png" alt="Second, the cURL program. Then we hit next.">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-08-57-02.png" alt="Next again!">
+        <img class="slide" src="images/cygwin/Windows 7-2013-09-25-09-01-55.png" alt="Installation done. We can hit finish and move on to Node.js">
+      </div>
+    </section>
+
+    <section>
+      <h2>Node.js</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/node/Windows 7-2013-09-25-09-02-33.png" alt="Head over to the nodejs website and click install">
+        <img class="slide" src="images/node/Windows 7-2013-09-25-09-02-39.png" alt="Save and run the installer">
+        <img class="slide" src="images/node/Windows 7-2013-09-25-09-03-03.png" alt="Hit next">
+        <img class="slide" src="images/node/Windows 7-2013-09-25-09-03-38.png" alt="Hit next">
+        <img class="slide" src="images/node/Windows 7-2013-09-25-09-03-59.png" alt="Oddly, this pops up a second installer. Allow this to run.">
+        <img class="slide" src="images/node/Windows 7-2013-09-25-09-04-35.png" alt="Done. Hit finish and let's verify it all worked.">
+      </div>
+    </section>
+
+    <section>
+      <h2>Verifying git, node, and npm work</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-05-59.png" alt="Open a command prompt">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-24-43.png" alt="Type the indicated commands and verify they have (roughly) the same output. Notice that git is failing! This is because we didn't add Cygwin to our environment PATH">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-25-22.png" alt="Open up the control panel and head over to the 'System' section">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-25-28.png" alt="Click the Advanced System Settings">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-25-32.png" alt="Clicked the 'Environment Variables' button">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-25-40.png" alt="In the 'System variables', NOT the 'User variables', section, select Path and hit Edit">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-26-15.png" alt="We'll be adding the string ';C:\cygwin\bin' here.">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-26-42.png" alt="Hit OK a few million times, then exit the command prompt you had open">
+        <img class="slide" src="images/verify git + node/Windows 7-2013-09-25-09-27-11.png" alt="Open a new command prompt, and verify that git now works. Also shown is that 'rm' works, because we added the entire Cygwin bin directory to our path.">
+      </div>
+    </section>
+
+    <section>
+      <h2>Bower and Grunt</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/npm/Windows 7-2013-09-25-09-28-47.png" alt="With Cygwin and Node installed, we can install Bower, like so:">
+        <img class="slide" src="images/npm/Windows 7-2013-09-25-09-28-54.png" alt="The bower install log.">
+        <img class="slide" src="images/npm/Windows 7-2013-09-25-09-29-26.png" alt="And we can install Grunt as the 'grunt-cli' program.">
+        <img class="slide" src="images/npm/Windows 7-2013-09-25-09-29-43.png" alt="The grunt-cli install log.">
+        <img class="slide" src="images/npm/Windows 7-2013-09-25-09-29-49.png" alt="Typing 'bower' as command shows it's installed properly">
+        <img class="slide" src="images/npm/Windows 7-2013-09-25-09-29-54.png" alt="And the same for grunt. Let's move on to Python and pip.">
+      </div>
+    </section>
+
+    <section>
+      <h2>Python and pip</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-30-06.png" alt="Head over to the python website, and pick the 'Download' link">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-30-21.png" alt="Pick the 2.7.x windows installer (we're going 32 bit for everything. Even if your machine is 64 bit. This is from an era when 64 bit was not reliable).">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-30-24.png" alt="Save and run.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-31-23.png" alt="Hit next">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-31-27.png" alt="Hit next. It's not a nice location, but unless it's a windows-only technology, chances that it understands spaces in paths are extremely low, and for dev work, it's something you'll have ot live with.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-31-29.png" alt="Hit next">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-37-21.png" alt="Hit next">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-38-07.png" alt="Add the python directory to your Path, like we did with Cygwin before.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-40-02.png" alt="Start a command prompt and verify that 'python' is a real thing.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-40-21.png" alt="Try to install pip using easy_setup, and fail.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-40-31.png" alt="Instead, head over to the pip-installer website and click the installation link. The site tells use we need the setuptools, so click on the setuptools link.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-40-36.png" alt="Pick the latest installer">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-40-43.png" alt="Don't click the download button, no matter how BIG and GREEN it is. Instead, click through to the Windows instructions.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-40-55.png" alt="click the ez_setup.py link">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-40-58.png" alt="copy-paste that text into notepad">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-41-00.png" alt="copy...">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-41-09.png" alt="...paste...">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-41-32.png" alt="... and save this to your desktop as ez_setup.py (note the file type is 'all files', not 'text file'. We don't want a .txt extension)">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-42-09.png" alt="Open a command prompt with administrative rights. This is important">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-42-31.png" alt="Head over to your Desktop directory, and run the script using python, which will run with admin rights because the command prompt is running as admin.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-42-41.png" alt="Done. We have setuptools 'installed' now.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-43-32.png" alt="Now that we have setuptools, go to the 'install or upgrade pip' section on the pip installation page, and click the get-pip.py link">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-43-38.png" alt="copy...">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-43-53.png" alt="... paste, save, you know the drill">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-44-37.png" alt="Command prompt with admin rights, and run the get-pip.py script with python.">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-44-45.png" alt="Done, you now have pip installed">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-45-45.png" alt="We'll need to add its dir to the path, which is 'C:\Python27\Scripts' (The screenshot uses lowercase: case doesn't actually matter in Windows)">
+        <img class="slide" src="images/python/Windows 7-2013-09-25-09-45-58.png" alt="Sorted. Close the command prompt, open a new one (non-admin) and run 'pip'. This should act as a normal program now. On to MongoDB.">
+      </div>
+    </section>
+
+    <section>
+      <h2>MongoDB</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-46-25.png" alt="Head over to the MongoDB website, and click through to the downloads section. Click the 32 bit windows link.">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-46-29.png" alt="Is... that a zip file? Yes. Yes it is.">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-46-53.png" alt=" Save it to disk, then take special note of the section on installing MongoDB in Windows in the Webmaker Suite README.md...">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-47-12.png" alt="Make a 'mongodb' folder in your Program Files folder.">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-49-17.png" alt="Open the mongodb zip file">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-49-20.png" alt="Go into that dir, and then into the bin dir.">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-49-27.png" alt="Select all these files...">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-50-18.png" alt="...and copy them into the mongodb folder you made.">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-57-33.png" alt="Add the mongodb folder to the Windows Path">
+        <img class="slide" src="images/mongo/Windows 7-2013-09-25-09-57-43.png" alt="Fire up a new command prompt, and verify that 'mongo' works. Then it's on to installing Java (hurray)">
+      </div>
+    </section>
+
+    <section>
+      <h2>Java</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-02-43.png" alt="Head over to the Java website and pick the Java SE 'top download'">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-02-54.png" alt="Click the JDK without netbeans.">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-03-10.png" alt="Accept the 'terms' and then pick the windows x86 version. Again, we're going 32 bit because we're not taking any chances">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-03-14.png" alt="save and run">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-05-15.png" alt="hit next">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-05-53.png" alt="hit next">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-06-19.png" alt="hit close">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-06-50.png" alt="open a command prompt and type 'java'. This should work.">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-08-10.png" alt="But we also need to make elastic search able to find java, because of course it can't work with spaces in paths. So, let's symlink the java folder to seemingly exist on C:\java, too.">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-11-16-48.png" alt="We're not quite done: we also need to set up a variable called JAVA_HOME that points to this c:\java location. Go to the same place as before, and create a new variable.">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-11-17-07.png" alt="Done. Open a command prompt and type 'env'. It should list the JAVA_HOME variable now. On to Elastic Search.">
+      </div>
+    </section>
+
+    <section>
+      <h2>Elastic Search</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/elastic/Windows 7-2013-09-25-09-58-02.png" alt="Head over to the Elastic Search website, and click download">
+        <img class="slide" src="images/elastic/Windows 7-2013-09-25-09-58-11.png" alt="Yeah... it's another zip file. Save it to disk">
+        <img class="slide" src="images/elastic/Windows 7-2013-09-25-09-58-50.png" alt="Create a folder 'elasticsearch' in the root. Yes, in the root.">
+        <img class="slide" src="images/elastic/Windows 7-2013-09-25-09-59-07.png" alt="Copy the contents of the elasticsearch zip file over into that folder">
+        <img class="slide" src="images/elastic/Windows 7-2013-09-25-11-14-42.png" alt="And then add the elasticsearch 'bin' directory to the windows Path.">
+      </div>
+    </section>
+
+    <section>
+      <h2>Microsoft Visual C++ compiler stack</h2>
+      <div class="deck-container">
+        <img class="slide" src="images\windows\msvc++.png" alt="We need to install the MSVC++ stack (this may change in the future), which means we first need to make sure we remove ALL VC++ redistributables from our computer. On a clean windows, you won't have any. On a Windows that has, say, Steam installed, you'll have a million entries. They all need to be uninstalled. Seriously.">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-26.png" alt="The Webmaker Suite README.md is quite explicit in that we need to do something important">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-33.png" alt="We need two bits to form our c++ stack. Click the first link...">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-36.png" alt="save it, and run it.">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-44.png" alt="yes, this is a web installer =(">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-57.png" alt="I like to disable this checkbox before hitting next">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-09-08.png" alt="And I DEFINITELY don't want silverlight on my machine. But don't let me tell you to uncheck that option.">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-16-24.png" alt="Let this run through its paces, and finish up.">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-17-07.png" alt="Then, click the second link, which brings us here. Click download">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-17-12.png" alt="save and run">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-20-31.png" alt="Another web installer!">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-20-43.png" alt="Hit next">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-20-50.png" alt="Agree, and hit next">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-21-08.png" alt="We're not going to guess. Leave these settings as they are, and hit next.">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-28-00.png" alt="This'll run for a while. Once done, hit finish.">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-28-10.png" alt="We don't need specific docs, so just hit cancel when this pops up.">
+        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-29-06.png" alt="And finally, that good old windows favourite: restart the computer!">
+      </div>
+    </section>
+
+    <section>
+      <h2>Installing Webmaker Suite</h2>
+      <div class="deck-container">
+        <img class="slide" src="images/install-webmaker/Windows 7-2013-09-25-10-35-39.png" alt="We're finally ready to install the Webmaker Suite. Clone the repo, and run 'node install-webmaker' in the webmaker suite directory">
+        <img class="slide" src="images/install-webmaker/Windows 7-2013-09-25-10-36-14.png" alt="You will be asked for your github username, and S3 credentials. Fill in your github username, but simply hit enter for the S3 key and secrets. Leaving them blank means we'll be doing localhost publishing with the option to change things later so we can do 'real' publishing to S3 if we need to.">
+        <img class="slide" src="images/install-webmaker/Windows 7-2013-09-25-14-52-31.png" alt="When done, we can run the webmaker suite with this command:">
+        <img class="slide" src="images/install-webmaker/Windows 7-2013-09-25-13-20-29.png" alt="However, you might run into errors like these during the run:">
+        <img class="slide" src="images/install-webmaker/Windows 7-2013-09-25-13-21-22.png" alt="If you do, go to the offending directory, and run 'npm install' and 'bower install' (also a good idea is to type 'npm update' and 'bower update', just to be sure). The installer should have done this, but... technology.">
+        <img class="slide" src="images/install-webmaker/Windows 7-2013-09-25-15-06-25.png" alt="Let's teach the web!">
+      </div>
+    </section>
+
+    <script>
+    (function() {
+      var deckCount = 0, slideCount = 0;
+
+      var decks = document.querySelectorAll(".deck-container");
+      decks = Array.prototype.slice.call(decks);
+      decks.forEach(function(deck) {
+        deckCount++;
+        deck.id = "deck" + deckCount;
+
+        var slides = deck.querySelectorAll(".slide");
+        deck.slides = slides = Array.prototype.slice.call(slides);
+        slideCount = 0;
+
+        var slideText = document.createElement("p");
+        slideText.setAttribute("class", "slideText");
+        deck.insertBefore(slideText, slides[0]);
+
+        var button = document.createElement("button");
+        button.setAttribute("class", "previous");
+        button.innerHTML = "previous step";
+        button.onclick = function() { deck.currentSlide.previous(); };
+        deck.insertBefore(button, slides[0]);
+
+        button = document.createElement("button");
+        button.setAttribute("class", "next");
+        button.innerHTML = "next step";
+        button.onclick = function() { deck.currentSlide.next(); };
+        deck.appendChild(button);
+
+        deck.setCurrentSlide = function(slide) {
+          deck.currentSlide = slide;
+          slideText.innerHTML = slide.alt;
+        }
+
+        for(var i=0, last=slides.length; i<last; i++) {
+          var slide = slides[i];
+          slide.slideCount = slideCount++;
+
+          (function bindSlide(deck, deckCount, slide, slideCount, i) {
+
+            // slide relations
+            slide.prevSlide = i>0 ?      slides[i-1] : false; //slides[last-1];
+            slide.nextSlide = i<last-1 ? slides[i+1] : false; //slides[0];
+            // toggle functions
+            slide.show = function(history) {
+              slide.style.display = "inline-block";
+              deck.setCurrentSlide(slide);
+              if(history !== false) {
+                var fragment = "#deck"+deckCount; //+"-slide"+slide.slideCount;
+                window.history.pushState(fragment, "Deck "+deckCount+", slide "+slideCount, fragment);
+              }
+            };
+            slide.hide = function() { slide.style.display = "none"; };
+            slide.next     = function() { if (slide.nextSlide) { slide.hide(); slide.nextSlide.show(); }};
+            slide.previous = function() { if (slide.prevSlide) { slide.hide(); slide.prevSlide.show(); }};
+            // onclick behaviour
+            slide.onclick = slide.next;
+            slide.title = "step "+(i+1);
+            // start of hidden
+            slide.hide();
+          }(deck, deckCount, slide, slideCount, i));
+        }
+        slides[0].show(false);
+      });
+    }());
+    </script>
+  </body>
+<html>
