@@ -197,7 +197,7 @@
         <img class="slide" src="images/java/Windows 7-2013-09-25-10-05-53.png" alt="hit next">
         <img class="slide" src="images/java/Windows 7-2013-09-25-10-06-19.png" alt="hit close">
         <img class="slide" src="images/java/Windows 7-2013-09-25-10-06-50.png" alt="open a command prompt and type 'java'. This should work.">
-        <img class="slide" src="images/java/Windows 7-2013-09-25-10-08-10.png" alt="But we also need to make elastic search able to find java, because of course it can't work with spaces in paths. So, let's symlink the java folder to seemingly exist on C:\java, too.">
+        <img class="slide" src="images/java/Windows 7-2013-09-25-10-08-10.png" alt="But we also need to make elastic search able to find java, because of course it can't work with spaces in paths. So, let's open a command prompt with administrative rights and symlink the java folder to seemingly exist on C:\java, too.">
         <img class="slide" src="images/java/Windows 7-2013-09-25-11-16-48.png" alt="We're not quite done: we also need to set up a variable called JAVA_HOME that points to this c:\java location. Go to the same place as before, and create a new variable.">
         <img class="slide" src="images/java/Windows 7-2013-09-25-11-17-07.png" alt="Done. Open a command prompt and type 'env'. It should list the JAVA_HOME variable now. On to Elastic Search.">
       </div>
@@ -211,29 +211,6 @@
         <img class="slide" src="images/elastic/Windows 7-2013-09-25-09-58-50.png" alt="Create a folder 'elasticsearch' in the root. Yes, in the root.">
         <img class="slide" src="images/elastic/Windows 7-2013-09-25-09-59-07.png" alt="Copy the contents of the elasticsearch zip file over into that folder">
         <img class="slide" src="images/elastic/Windows 7-2013-09-25-11-14-42.png" alt="And then add the elasticsearch 'bin' directory to the windows Path.">
-      </div>
-    </section>
-
-    <section>
-      <h2>Microsoft Visual C++ compiler stack</h2>
-      <div class="deck-container">
-        <img class="slide" src="images\windows\msvc++.png" alt="We need to install the MSVC++ stack (this may change in the future), which means we first need to make sure we remove ALL VC++ redistributables from our computer. On a clean windows, you won't have any. On a Windows that has, say, Steam installed, you'll have a million entries. They all need to be uninstalled. Seriously.">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-26.png" alt="The Webmaker Suite README.md is quite explicit in that we need to do something important">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-33.png" alt="We need two bits to form our c++ stack. Click the first link...">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-36.png" alt="save it, and run it.">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-44.png" alt="yes, this is a web installer =(">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-08-57.png" alt="I like to disable this checkbox before hitting next">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-09-08.png" alt="And I DEFINITELY don't want silverlight on my machine. But don't let me tell you to uncheck that option.">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-16-24.png" alt="Let this run through its paces, and finish up.">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-17-07.png" alt="Then, click the second link, which brings us here. Click download">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-17-12.png" alt="save and run">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-20-31.png" alt="Another web installer!">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-20-43.png" alt="Hit next">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-20-50.png" alt="Agree, and hit next">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-21-08.png" alt="We're not going to guess. Leave these settings as they are, and hit next.">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-28-00.png" alt="This'll run for a while. Once done, hit finish.">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-28-10.png" alt="We don't need specific docs, so just hit cancel when this pops up.">
-        <img class="slide" src="images\windows\Windows 7-2013-09-25-10-29-06.png" alt="And finally, that good old windows favourite: restart the computer!">
       </div>
     </section>
 
