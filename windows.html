@@ -215,6 +215,23 @@
     </section>
 
     <section>
+      <h2>Microsoft VC++ Redistributable (2010)</h2>
+      <p>Older versions of the webmaker suite required you to have a full Microsoft Visual C++ stack installed, because older versions of the node.js "sqlite3" package got compile through node-gyp when you installed it. Thankfully, the sqlite3 package now comes with prebuilt binaries, so you only need the vc++ redistributable so that the function calls work.</p>
+      <p>This step will be completely unnecessary for most people, because they already have the vc++ redistributables installed (it comes with a million and one applications), and if you play games on your windows machine, the chances that you still need this are even lower. But, let's make sure.</p>
+      <div class="deck-container">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-23-31.png" alt="Open a command prompt, and run 'npm install sqlite3'">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-25-13.png" alt="If you see this, perfect, you don't need to install the vc++ redistributable, you already have it!">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-33-11.png" alt="If you see this instead, head over to the download page for the 2010 vc++ redistributable, and download the one for your system (there's one for 32 bit, and one for 64 bit windows)">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-37-09.png" alt="big red download button">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-37-15.png" alt="If you're on x64, you probably want the x64 version instead. Scroll down and checkmark it before hitting continue.">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-37-22.png" alt="Save installer">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-37-30.png" alt="Run installer">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-37-36.png" alt="Agree and install">
+        <img class="slide" src="images/vc++/Windows 7-2013-09-26-15-37-51.png" alt="Done. Let's run us some Webmaker">
+      </div>
+    </section>
+
+    <section>
       <h2>Installing Webmaker Suite</h2>
       <div class="deck-container">
         <img class="slide" src="images/install-webmaker/Windows 7-2013-09-25-10-35-39.png" alt="We're finally ready to install the Webmaker Suite. Clone the repo, and run 'node install-webmaker' in the webmaker suite directory">
