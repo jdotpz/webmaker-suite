@@ -24,7 +24,7 @@ Make sure you have the following prerequisites installed:
 **Step 4**: (Slightly optional) Use the webmaker-suite/add-remote.js to point the github remote repo to a fork in your account and AWS secrets.  To update webmaker-suite (lengthy process) use the update-webmaker.js script
 
 **Step 5**: Issue the command ./webmaker-suite.sh from within the running vagrant instance you have ssh'd into
-This will start all relevant processes.  You will be able to access them via the following urls:
+This will start all relevant processes.  You will be able to access them via the following urls on your workstation:
   * http://localhost:3000 - login.webmaker.org
   * http://localhost:3500 - thimble.webmaker.org
   * http://localhost:5000 - makeapi
